@@ -4,15 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kelompok 2 - Pemrograman Web 1</title>
-  <!-- Bootstrap 5 CSS (Framework yang diperbolehkan) -->
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <style>
+    /* Styling Custom Modern */
+    .hero-gradient {
+      background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+    }
+    .hover-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border: 4px solid #ffffff;
+    }
+  </style>
 </head>
 <body class="bg-light">
 
   <!-- Navbar Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Web Kelompok 2</a>
+      <a class="navbar-brand fw-bold" href="#"><i class="bi bi-code-slash text-info me-2"></i>Kelompok 2</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -27,44 +49,54 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header id="beranda" class="bg-primary text-white text-center py-5 shadow-sm">
-    <div class="container my-4">
-      <h1 class="display-4 fw-bold">Selamat Datang di Proyek Web 1</h1>
-      <p class="lead">Website Statis Interaktif — Kelompok 2 Pemrograman Web 1</p>
-      <a href="#tim" class="btn btn-light btn-lg mt-3 fw-semibold">Lihat Anggota Tim</a>
+  <!-- Hero Section (Gradient Modern) -->
+  <header id="beranda" class="hero-gradient text-white text-center py-5">
+    <div class="container my-5">
+      <span class="badge bg-white text-primary rounded-pill px-3 py-2 mb-3 fw-bold">TUGAS PROJECT WEB 1</span>
+      <h1 class="display-4 fw-bold mb-3">Solusi Digital Statis Interaktif</h1>
+      <p class="lead opacity-90 col-md-8 mx-auto">Website showcase buatan Kelompok 2 menggunakan fondasi HTML5, CSS Bootstrap, dan JavaScript murni tanpa CMS.</p>
+      <a href="#tim" class="btn btn-light text-primary btn-lg mt-3 fw-bold shadow-sm rounded-pill px-4">Lihat Anggota Tim</a>
     </div>
   </header>
 
   <!-- Fitur / Tentang Section -->
   <section id="tentang" class="py-5">
-    <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="fw-bold">Fitur Proyek</h2>
-        <p class="text-muted">Website statis tanpa database sesuai ketentuan tugas.</p>
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Fitur Utama</h2>
+        <p class="text-muted">Dibangun murni dari *client-side* untuk performa cepat dan responsif.</p>
       </div>
       <div class="row g-4 text-center">
         <div class="col-md-4">
-          <div class="card h-100 border-0 shadow-sm p-3">
+          <div class="card h-100 border-0 shadow-sm p-4 hover-card rounded-4">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Responsive Design</h5>
-              <p class="card-text">Tampilan otomatis menyesuaikan layar HP, tablet, maupun laptop.</p>
+              <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-phone fs-3"></i>
+              </div>
+              <h5 class="card-title fw-bold">Fully Responsive</h5>
+              <p class="card-text text-muted">Tampilan rapi di semua resolusi layar dari smartphone hingga desktop.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card h-100 border-0 shadow-sm p-3">
+          <div class="card h-100 border-0 shadow-sm p-4 hover-card rounded-4">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Clean Code</h5>
-              <p class="card-text">Disusun dengan HTML5, CSS Bootstrap, dan logika JavaScript murni.</p>
+              <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-lightning-charge fs-3"></i>
+              </div>
+              <h5 class="card-title fw-bold">Performa Cepat</h5>
+              <p class="card-text text-muted">Beban muat ringan karena tidak memerlukan proses server backend dan database.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card h-100 border-0 shadow-sm p-3">
+          <div class="card h-100 border-0 shadow-sm p-4 hover-card rounded-4">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Interaktif</h5>
-              <p class="card-text">Formulir interaktif di sisi klien tanpa perlu server backend.</p>
+              <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <i class="bi bi-code-square fs-3"></i>
+              </div>
+              <h5 class="card-title fw-bold">Clean & Valid Code</h5>
+              <p class="card-text text-muted">Struktur file tersusun rapi memudahkan pengembangan dan dokumentasi manual book.</p>
             </div>
           </div>
         </div>
@@ -72,69 +104,96 @@
     </div>
   </section>
 
-  <!-- Anggota Tim Section -->
+  <!-- Anggota Tim Section (Dengan Foto Profil) -->
   <section id="tim" class="py-5 bg-white">
-    <div class="container">
+    <div class="container py-4">
       <div class="text-center mb-5">
         <h2 class="fw-bold">Anggota Kelompok</h2>
-        <p class="text-muted">Tim Pengembang Proyek Pemrograman Web 1</p>
+        <p class="text-muted">Tim di balik pembuatan proyek Pemrograman Web 1</p>
       </div>
       <div class="row g-4 justify-content-center">
+        
+        <!-- Anggota 1 -->
         <div class="col-md-4">
-          <div class="card border-0 shadow-sm text-center p-3">
+          <div class="card border-0 shadow-sm text-center p-4 hover-card rounded-4 bg-light">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Ahmad Firdaus</h5>
-              <p class="text-primary mb-1">NIM: 241011401761</p>
-              <p class="card-text text-muted">Frontend Developer</p>
+              <!-- Foto profil (Bisa diganti foto asli nanti) -->
+              <img src="Firdaus.png" class="rounded-circle profile-img shadow-sm mb-3" alt="Ahmad Firdaus">
+              <h5 class="card-title fw-bold mb-1">Ahmad Firdaus</h5>
+              <span class="badge bg-primary-subtle text-primary mb-2">NIM: 241011401761</span>
+              <p class="card-text text-muted small">Frontend Developer</p>
+              <div class="d-flex justify-content-center gap-2 mt-3">
+                <a href="#" class="btn btn-outline-dark btn-sm rounded-circle"><i class="bi bi-github"></i></a>
+                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Anggota 2 -->
         <div class="col-md-4">
-          <div class="card border-0 shadow-sm text-center p-3">
+          <div class="card border-0 shadow-sm text-center p-4 hover-card rounded-4 bg-light">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Gregorius Gilbert I. S.</h5>
-              <p class="text-primary mb-1">NIM: 241011402382</p>
-              <p class="card-text text-muted">UI/UX Designer</p>
+              <img src="Gilbert.png" class="rounded-circle profile-img shadow-sm mb-3" alt="Gregorius Gilbert">
+              <h5 class="card-title fw-bold mb-1">Gregorius Gilbert I. S.</h5>
+              <span class="badge bg-primary-subtle text-primary mb-2">NIM: 241011402382</span>
+              <p class="card-text text-muted small">UI/UX Designer</p>
+              <div class="d-flex justify-content-center gap-2 mt-3">
+                <a href="#" class="btn btn-outline-dark btn-sm rounded-circle"><i class="bi bi-github"></i></a>
+                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Anggota 3 (Hasta) -->
         <div class="col-md-4">
-          <div class="card border-0 shadow-sm text-center p-3">
+          <div class="card border-0 shadow-sm text-center p-4 hover-card rounded-4 bg-light">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Servatius Hasta Kristanto</h5>
-              <p class="text-primary mb-1">NIM: 241011400076</p>
-              <p class="card-text text-muted">Technical Lead</p>
+              <img src="Hasta.png" class="rounded-circle profile-img shadow-sm mb-3" alt="Servatius Hasta Kristanto">
+              <h5 class="card-title fw-bold mb-1">Servatius Hasta Kristanto</h5>
+              <span class="badge bg-primary-subtle text-primary mb-2">NIM: 241011400076</span>
+              <p class="card-text text-muted small">Technical Lead</p>
+              <div class="d-flex justify-content-center gap-2 mt-3">
+                <a href="https://github.com/H45T4CK" target="_blank" class="btn btn-outline-dark btn-sm rounded-circle"><i class="bi bi-github"></i></a>
+                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Form Interaktif JS -->
   <section id="kontak" class="py-5">
-    <div class="container" style="max-width: 600px;">
-      <div class="text-center mb-4">
-        <h2 class="fw-bold">Kirim Pesan</h2>
-        <p class="text-muted">Contoh interaktivitas JavaScript (Client-side)</p>
+    <div class="container py-4" style="max-width: 600px;">
+      <div class="card p-4 p-md-5 border-0 shadow-sm rounded-4">
+        <div class="text-center mb-4">
+          <h3 class="fw-bold">Hubungi Kami</h3>
+          <p class="text-muted small">Formulir interaktif client-side berbasis JavaScript.</p>
+        </div>
+        <form id="formPesan">
+          <div class="mb-3">
+            <label for="nama" class="form-label fw-semibold">Nama Lengkap</label>
+            <input type="text" class="form-control form-control-lg fs-6" id="nama" placeholder="Masukkan nama..." required>
+          </div>
+          <div class="mb-3">
+            <label for="pesan" class="form-label fw-semibold">Pesan</label>
+            <textarea class="form-control" id="pesan" rows="4" placeholder="Tulis pesan kamu di sini..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 fw-bold fs-6">Kirim Pesan</button>
+        </form>
       </div>
-      <form id="formPesan" class="card p-4 border-0 shadow-sm">
-        <div class="mb-3">
-          <label for="nama" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="nama" placeholder="Masukkan nama kamu" required>
-        </div>
-        <div class="mb-3">
-          <label for="pesan" class="form-label">Pesan</label>
-          <textarea class="form-control" id="pesan" rows="3" placeholder="Tulis pesan..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Kirim Pesan</button>
-      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">&copy; 2026 Kelompok 2 Pemrograman Web 1. All rights reserved.</p>
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0 text-muted small">&copy; 2026 Kelompok 2 Pemrograman Web 1. Built with Bootstrap & GitHub Pages.</p>
+    </div>
   </footer>
 
   <!-- Bootstrap JS CDN -->
