@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-bs-theme="light">
+<html lang="id" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   
   <style>
-    /* Custom Styling & Micro-interactions */
+    /* Hero Gradient & Card Hover */
     .hero-gradient {
       background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
     }
@@ -19,55 +19,38 @@
     }
     .hover-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.2) !important;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25) !important;
     }
     
-    /* EFEK AVATAR 2.5D POP-OUT */
-    .avatar-wrapper {
-      position: relative;
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 1.2rem;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-    
-    /* Lingkaran latar di belakang avatar */
-    .avatar-bg-circle {
-      position: absolute;
-      bottom: 0;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(13, 110, 253, 0.25), rgba(13, 202, 240, 0.4));
-      border: 2px solid rgba(13, 110, 253, 0.3);
-      transition: all 0.3s ease;
-    }
-    
-    /* Gambar karakter transparan yang 'pop-out' */
-    .avatar-img-pop {
-      position: relative;
-      z-index: 2;
-      width: 135px;
-      height: 145px;
+    /* EFEK AVATAR 2.5D (NO BACKGROUND / FLOATING PNG) */
+    .profile-img-2d {
+      height: 150px;
+      width: auto;
+      max-width: 100%;
       object-fit: contain;
-      object-position: center bottom;
-      filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      /* Drop-shadow yang mengikuti garis tepian gambar transparan */
+      filter: drop-shadow(0px 10px 14px rgba(0, 0, 0, 0.4));
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    /* Hover effect 2.5D: Gambar terangkat keluar lingkaran */
-    .hover-card:hover .avatar-img-pop {
-      transform: translateY(-12px) scale(1.1);
-      filter: drop-shadow(0 12px 20px rgba(13, 110, 253, 0.45));
-    }
-    .hover-card:hover .avatar-bg-circle {
-      transform: scale(1.05);
-      background: linear-gradient(135deg, rgba(13, 110, 253, 0.4), rgba(13, 202, 240, 0.6));
+    .hover-card:hover .profile-img-2d {
+      transform: translateY(-6px) scale(1.06);
+      filter: drop-shadow(0px 14px 20px rgba(13, 202, 240, 0.5));
     }
 
-    /* Back to Top Button */
+    /* Custom Profile Link Buttons */
+    .btn-profile-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 6px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    /* Back to Top Floating Button */
     #btnBackToTop {
       position: fixed;
       bottom: 20px;
@@ -95,7 +78,7 @@
           <!-- Dark Mode Toggle Button -->
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
             <button class="btn btn-outline-light btn-sm rounded-circle px-2" id="btnThemeToggle" title="Ganti Mode Tampilan">
-              <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+              <i class="bi bi-sun-fill text-warning" id="themeIcon"></i>
             </button>
           </li>
         </ul>
@@ -135,7 +118,7 @@
         <div class="col-md-4">
           <div class="card h-100 border-0 shadow-sm p-4 hover-card rounded-4">
             <div class="card-body">
-              <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+              <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
                 <i class="bi bi-moon-stars fs-3"></i>
               </div>
               <h5 class="card-title fw-bold">Dark / Light Mode</h5>
@@ -158,7 +141,7 @@
     </div>
   </section>
 
-  <!-- Anggota Tim Section (2.5D Pop-Out Avatar) -->
+  <!-- Anggota Tim Section (2.5D Pop-out) -->
   <section id="tim" class="py-5 bg-body-tertiary">
     <div class="container py-4">
       <div class="text-center mb-5">
@@ -170,17 +153,19 @@
         <!-- Anggota 1 -->
         <div class="col-md-4">
           <div class="card border-0 shadow-sm text-center p-4 hover-card rounded-4">
-            <div class="card-body">
-              <div class="avatar-wrapper">
-                <div class="avatar-bg-circle"></div>
-                <img src="Firdaus.png" class="avatar-img-pop" alt="Ahmad Firdaus">
-              </div>
+            <div class="card-body d-flex flex-column align-items-center">
+              <img src="Firdaus.png" class="profile-img-2d mb-3" alt="Ahmad Firdaus">
               <h5 class="card-title fw-bold mb-1">Ahmad Firdaus</h5>
               <span class="badge bg-primary-subtle text-primary mb-2">NIM: 241011401761</span>
-              <p class="card-text text-muted small">Frontend Developer</p>
-              <div class="d-flex justify-content-center gap-2 mt-3">
-                <a href="#" class="btn btn-outline-dark btn-sm rounded-circle" title="GitHub"><i class="bi bi-github"></i></a>
-                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <p class="card-text text-muted small mb-3">Frontend Developer</p>
+              
+              <div class="d-flex flex-wrap justify-content-center gap-2 mt-auto">
+                <a href="#" class="btn btn-outline-primary btn-profile-link">
+                  <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+                <a href="#" class="btn btn-outline-secondary btn-profile-link">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
               </div>
             </div>
           </div>
@@ -189,17 +174,19 @@
         <!-- Anggota 2 -->
         <div class="col-md-4">
           <div class="card border-0 shadow-sm text-center p-4 hover-card rounded-4">
-            <div class="card-body">
-              <div class="avatar-wrapper">
-                <div class="avatar-bg-circle"></div>
-                <img src="Gilbert.png" class="avatar-img-pop" alt="Gregorius Gilbert">
-              </div>
+            <div class="card-body d-flex flex-column align-items-center">
+              <img src="Gilbert.png" class="profile-img-2d mb-3" alt="Gregorius Gilbert">
               <h5 class="card-title fw-bold mb-1">Gregorius Gilbert I. S.</h5>
               <span class="badge bg-primary-subtle text-primary mb-2">NIM: 241011402382</span>
-              <p class="card-text text-muted small">UI/UX Designer</p>
-              <div class="d-flex justify-content-center gap-2 mt-3">
-                <a href="#" class="btn btn-outline-dark btn-sm rounded-circle" title="GitHub"><i class="bi bi-github"></i></a>
-                <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <p class="card-text text-muted small mb-3">UI/UX Designer</p>
+              
+              <div class="d-flex flex-wrap justify-content-center gap-2 mt-auto">
+                <a href="#" class="btn btn-outline-primary btn-profile-link">
+                  <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+                <a href="#" class="btn btn-outline-secondary btn-profile-link">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
               </div>
             </div>
           </div>
@@ -208,17 +195,19 @@
         <!-- Anggota 3 (Hasta) -->
         <div class="col-md-4">
           <div class="card border-0 shadow-sm text-center p-4 hover-card rounded-4">
-            <div class="card-body">
-              <div class="avatar-wrapper">
-                <div class="avatar-bg-circle"></div>
-                <img src="Hasta.png" class="avatar-img-pop" alt="Servatius Hasta Kristanto">
-              </div>
+            <div class="card-body d-flex flex-column align-items-center">
+              <img src="Hasta.png" class="profile-img-2d mb-3" alt="Servatius Hasta Kristanto">
               <h5 class="card-title fw-bold mb-1">Servatius Hasta Kristanto</h5>
               <span class="badge bg-primary-subtle text-primary mb-2">NIM: 241011400076</span>
-              <p class="card-text text-muted small">Technical Lead</p>
-              <div class="d-flex justify-content-center gap-2 mt-3">
-                <a href="https://github.com/H45T4CK" target="_blank" class="btn btn-outline-dark btn-sm rounded-circle" title="GitHub"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/servatius-hasta-kristanto-89354833b" target="_blank" class="btn btn-outline-primary btn-sm rounded-circle" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <p class="card-text text-muted small mb-3">Technical Lead</p>
+              
+              <div class="d-flex flex-wrap justify-content-center gap-2 mt-auto">
+                <a href="https://www.linkedin.com/in/servatius-hasta-kristanto-89354833b" target="_blank" class="btn btn-outline-primary btn-profile-link">
+                  <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/H45T4CK" target="_blank" class="btn btn-outline-secondary btn-profile-link">
+                  <i class="bi bi-github"></i> GitHub
+                </a>
               </div>
             </div>
           </div>
@@ -278,14 +267,14 @@
   <!-- Bootstrap JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
-  <!-- Logika JS -->
+  <!-- Logika JS Modern -->
   <script>
-    // Dark Mode Toggle
+    // 1. Dark Mode Toggle
     const btnThemeToggle = document.getElementById('btnThemeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const htmlElement = document.documentElement;
 
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     htmlElement.setAttribute('data-bs-theme', savedTheme);
     updateIcon(savedTheme);
 
@@ -301,11 +290,11 @@
       if (theme === 'dark') {
         themeIcon.className = 'bi bi-sun-fill text-warning';
       } else {
-        themeIcon.className = 'bi bi-moon-stars-fill';
+        themeIcon.className = 'bi bi-moon-stars-fill text-dark';
       }
     }
 
-    // Form Toast Notification
+    // 2. Form Toast Notification
     const formPesan = document.getElementById('formPesan');
     const toastElement = document.getElementById('liveToast');
     const toastMessage = document.getElementById('toastMessage');
@@ -319,7 +308,7 @@
       this.reset();
     });
 
-    // Back to Top Button
+    // 3. Floating Back to Top Button
     const btnBackToTop = document.getElementById('btnBackToTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
